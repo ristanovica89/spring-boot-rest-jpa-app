@@ -3,9 +3,11 @@ package com.ristanovica89.rest_api_crud.service.impl;
 import com.ristanovica89.rest_api_crud.model.Employee;
 import com.ristanovica89.rest_api_crud.repository.EmployeeRepository;
 import com.ristanovica89.rest_api_crud.service.EmployeeService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
     EmployeeRepository employeeRepository;
