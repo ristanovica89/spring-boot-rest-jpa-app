@@ -1,9 +1,20 @@
 package com.ristanovica89.rest_api_crud.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "employee_info")
 public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employeeId;
+
     private String name;
+
+    @Column(unique = true)
     private String email;
+
     private String phoneNumber;
 
 
