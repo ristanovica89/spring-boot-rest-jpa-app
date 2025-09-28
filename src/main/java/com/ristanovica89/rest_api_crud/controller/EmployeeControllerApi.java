@@ -12,7 +12,7 @@ public class EmployeeControllerApi {
     Employee employee;
 
     @GetMapping("{employeeId}")
-    public Employee getEmployeeDetails(String employeeId){
+    public Employee getEmployeeDetails(Integer employeeId){
         return employee;
     }
 }
