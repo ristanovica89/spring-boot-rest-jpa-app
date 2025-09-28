@@ -7,7 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RestApiCrudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestApiCrudApplication.class, args);
+
+        SpringApplication.run(RestApiCrudApplication.class, args);
+
+
 	}
 
 }
