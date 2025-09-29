@@ -27,18 +27,24 @@ public class EmployeeController {
     }
 
     @PostMapping()
-    public void createNewEmployeeDetails(@RequestBody Employee employee){
+    public String createNewEmployeeDetails(@RequestBody Employee employee){
         employeeService.createEmployee(employee);
+
+        return "New employee successfully created.";
     }
 
     @PutMapping()
-    public void updateEmployeeDetails(@RequestBody Employee employee){
+    public String updateEmployeeDetails(@RequestBody Employee employee){
         employeeService.updateEmployee(employee);
+
+        return "Employee successfully updated.";
     }
 
     @DeleteMapping("{employeeId}")
-    public void deleteEmployeeDetails(@PathVariable("employeeId") Integer employeeId){
+    public String deleteEmployeeDetails(@PathVariable("employeeId") Integer employeeId){
         employeeService.deleteEmployee(employeeId);
+
+        return "Employee successfully deleted.";
     }
 
 }
