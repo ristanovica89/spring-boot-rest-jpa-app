@@ -24,7 +24,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public String updateEmployee(Employee employee) {
-        if(employeeRepository.existsById(employee.getEmployeeId())){
+        if(!employeeRepository.existsById(employee.getEmployeeId())){
             return "Employee with ID " + employee.getEmployeeId() + " does not exist.";
         }
         employeeRepository.save(employee);
