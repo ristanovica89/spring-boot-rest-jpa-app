@@ -1,5 +1,6 @@
 package com.ristanovica89.rest_api_crud.service.impl;
 
+import com.ristanovica89.rest_api_crud.exception.EmployeeNotFoundException;
 import com.ristanovica89.rest_api_crud.model.Employee;
 import com.ristanovica89.rest_api_crud.repository.EmployeeRepository;
 import com.ristanovica89.rest_api_crud.service.EmployeeService;
@@ -39,8 +40,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee getEmployee(Integer employeeId) {
-        return employeeRepository.findById(employeeId).orElseThrow(()->
-                new RuntimeException("Employee ID: " + employeeId + " not found."));
+        if(employeeRepository.findById(employeeId).isEmpty()){
+            throw new EmployeeNotFoundException("Employee with ID: " + employeeId + " is not found.");
+        }
+        return employeeRepository.findById(employeeId).get();
     }
 
     @Override
