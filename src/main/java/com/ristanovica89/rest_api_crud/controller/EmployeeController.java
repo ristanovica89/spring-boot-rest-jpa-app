@@ -1,7 +1,10 @@
 package com.ristanovica89.rest_api_crud.controller;
 
 import com.ristanovica89.rest_api_crud.model.Employee;
+import com.ristanovica89.rest_api_crud.response.ResponseHandler;
 import com.ristanovica89.rest_api_crud.service.EmployeeService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,13 +20,13 @@ public class EmployeeController {
     }
 
     @GetMapping()
-    public List<Employee> getAllEmployeesDetails(){
-        return employeeService.getAllEmployees();
+    public ResponseEntity<Object> getAllEmployeesDetails(){
+        return ResponseHandler.responseBuilder("All employees details",HttpStatus.OK,employeeService.getAllEmployees());
     }
 
     @GetMapping("{employeeId}")
-    public Employee getEmployeeDetails(@PathVariable("employeeId") Integer employeeId){
-        return employeeService.getEmployee(employeeId);
+    public ResponseEntity<Object> getEmployeeDetails(@PathVariable("employeeId") Integer employeeId){
+        return ResponseHandler.responseBuilder("Employee details",HttpStatus.OK,employeeService.getEmployee(employeeId));
     }
 
     @PostMapping()
